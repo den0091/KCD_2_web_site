@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Карта локацій KCD II</title>
+    <meta charset="UTF-8">
+    <style>
+        /* 🎨 Загальні стилі сторінки */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("GoQoYGXWQAABsI9.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Georgia, serif;
+            text-align: center;
+        }
+
+        /* 🔝 Шапка сайту (навігація + логотип) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+            gap: 20px;
+        }
+        header img { height: 50px; border-radius: 10px; }
+        header a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #a00000, #ff0000);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255,0,0,0.7);
+            transition: 0.3s;
+        }
+        header a:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255,0,0,1);
+        }
+
+        /* 📦 Контент сторінки */
+        .content {
+            background: rgba(0, 0, 0, 0.6);
+            margin: auto;
+            width: 90%;
+            padding: 120px 20px 40px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🗺 Блок з головною картою */
+        .map-container { margin: 20px 0; position: relative; }
+        #mainMap {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.7);
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* ℹ Підпис під картою (з'являється при наведенні) */
+        .info-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            display: none;
+            pointer-events: none;
+        }
+        #mainMap:hover + .info-overlay { display: block; }
+
+        /* 🖼 Галерея інших локацій */
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .gallery-item { width: 330px; margin-bottom: 20px; position: relative; }
+        .gallery-item img {
+            width: 100%; height: auto; border-radius: 15px; cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+        }
+        .gallery-item img:hover, #mainMap:hover { transform: scale(1.1); }
+
+        /* ℹ Текст-підказка при наведенні на локацію */
+        .gallery-item .info-overlay { display: none; }
+        .gallery-item:hover .info-overlay { display: block; }
+
+        /* 🔘 Кнопка "Назад" */
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 20px;
+            color: white;
+            background: linear-gradient(135deg, #a00000, #ff0000);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0px 0px 15px rgba(255,0,0,0.7);
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000);
+            transform: scale(1.1);
+            box-shadow: 0px 0px 25px rgba(255,0,0,1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔝 Шапка сайту -->
+<header>
+    <a href="WEB SAYT.html">Основна</a>
+    <a href="2.html">Локації</a>
+    <a href="kuttenberg.html">Куттенберг</a>
+    <a href="inf.html">Інформація</a>
+    <img src="https://upload.wikimedia.org/wikipedia/uk/c/c5/Kingdom-Come-Deliverance-2.jpg" alt="KCD II">
+</header>
+
+<!-- 📦 Основний контент -->
+<div class="content">
+    <h1>Карта локацій KCD II</h1>
+    <p>Куттенберг та околиці — ключові локації гри Kingdom Come: Deliverance II. Тут гравець може відвідати річки, замки, табори, села та інші важливі місця.</p>
+
+    <!-- 🗺 Головна карта -->
+    <h2>Карта локації Куттенберг</h2>
+    <div class="map-container">
+        <img src="GZi2rzQXoBECHqu.jpg" alt="Куттенберг" id="mainMap" onclick="window.location.href='kuttenberg.html'">
+        <div class="info-overlay">Куттенберг — центральне місто гри</div>
+    </div>
+
+    <!-- 🖼 Галерея інших локацій -->
+    <h2>Інші локації</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="map-of-nomads-camp-2048x2048px-full-resolution-kcd2-v0-qsl4c7tv2qje1.webp">
+            <div class="info-overlay">Табір кочівників — місце збору ресурсів</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-zhelejov-4096x4096px-full-resolution-v0-le0of4bt7ble1.webp">
+            <div class="info-overlay">Желєйов — ремісниче містечко</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-trosky-castle-4096x4096px-full-resolution-v0-adpmuqens5le1.webp">
+            <div class="info-overlay">Замок Троски — середньовічна фортеця</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-the-devils-den-2048x2048px-full-resolution-v0-z6gxl6qoayle1.webp">
+            <div class="info-overlay">Диявольське лігвище — небезпечне місце</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-tachov-4096x4096px-full-resolution-v0-hrrbcs4o7zje1.webp">
+            <div class="info-overlay">Тахов — містечко з фермами та ремісниками</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-suchdol-4096x4096px-full-resolution-v0-zyuk3ocna2me1.webp">
+            <div class="info-overlay">Сучдоль — село для торгівлі та квестів</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-sigismunds-camp-4096x4096px-full-resolution-v0-mnfcsuwwggme1.webp">
+            <div class="info-overlay">Табір Сигізмунда — військова локація</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-semin-4096x4096px-full-resolution-v0-h4w6ilc6sbke1.webp">
+            <div class="info-overlay">Семін — містечко із замком</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-old-kutna-4096x4096px-full-resolution-v0-6kjnijrkx1ne1.webp">
+            <div class="info-overlay">Стара Кутна — історична частина міста</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-miskowitz-4096x4096px-full-resolution-v0-q5tmpqjxphle1.webp">
+            <div class="info-overlay">Місковіц — невелике поселення поблизу Куттенберга</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-malesov-4096x4096px-full-resolution-v0-lq3n7k0ofwne1.webp">
+            <div class="info-overlay">Малесов — містечко з фермерськими угіддями</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-horschan-4096x4096px-full-resolution-v0-abk23t8kgwme1.webp">
+            <div class="info-overlay">Хоршан — стратегічне місто</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-grund-4096x4096px-full-resolution-v0-6k4rpm480hme1.webp">
+            <div class="info-overlay">Грунд — маленьке поселення</div>
+        </div>
+        <div class="gallery-item">
+            <img src="kcd2-map-of-bohunowitz-4096x4096px-full-resolution-v0-i7mrhgx4kule1.webp">
+            <div class="info-overlay">Богуновіц — село з торговими точками</div>
+        </div>
+    </div>
+
+    <!-- 🔘 Кнопка повернення -->
+    <a href="WEB SAYT.html" class="button">Назад</a>
+</div>
+</body>
+</html>

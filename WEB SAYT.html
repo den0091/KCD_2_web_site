@@ -1,0 +1,213 @@
+<!DOCTYPE html> <!-- Вказує, що це HTML5 -->
+<html>
+<head>
+    <title>Kingdom Come: Deliverance II - Середньовічний світ</title> <!-- Заголовок вкладки браузера -->
+    <meta charset="UTF-8"> <!-- Кодування UTF-8 для підтримки українських символів -->
+
+    <style>
+        /* Загальні стилі для сторінки */
+        body {
+            margin: 0; /* Прибирає відступи браузера */
+            padding: 0; /* Прибирає внутрішні відступи */
+            background: url("GoQoYGXWQAABsI9.jpg") no-repeat center center fixed; /* Фон-картинка */
+            background-size: cover; /* Розтягує фон на весь екран */
+            color: white; /* Колір тексту */
+            font-family: Georgia, serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту по центру */
+        }
+
+        /* Стилі для шапки з меню */
+        header {
+            position: fixed; /* Фіксує шапку зверху */
+            top: 0; left: 0; /* Розташування вгорі зліва */
+            width: 100%; /* На всю ширину */
+            background: rgba(0,0,0,0.85); /* Напівпрозорий чорний фон */
+            display: flex; /* Розташування елементів в ряд */
+            align-items: center; /* Вирівнювання по центру вертикально */
+            justify-content: center; /* Вирівнювання по центру горизонтально */
+            padding: 10px 0; /* Відступи зверху та знизу */
+            z-index: 1000; /* Щоб було поверх контенту */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7); /* Тінь під шапкою */
+            gap: 20px; /* Відстань між елементами */
+        }
+
+        /* Стиль для картинки в шапці */
+        header img {
+            height: 50px; /* Висота логотипа */
+            border-radius: 10px; /* Округлення кутів */
+        }
+
+        /* Стиль для кнопок (посилань) в шапці */
+        header a {
+            text-decoration: none; /* Прибирає підкреслення */
+            color: white; /* Білий текст */
+            font-weight: bold; /* Жирний текст */
+            font-size: 18px; /* Розмір шрифту */
+            padding: 10px 20px; /* Відступи */
+            background: linear-gradient(135deg, #a00000, #ff0000); /* Червоний градієнт */
+            border-radius: 10px; /* Закруглені краї */
+            box-shadow: 0px 0px 10px rgba(255,0,0,0.7); /* Світіння */
+            transition: 0.3s; /* Анімація при наведенні */
+        }
+
+        /* Ефект при наведенні на кнопку */
+        header a:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000); /* Зміна кольору */
+            transform: scale(1.05); /* Трохи збільшується */
+            box-shadow: 0px 0px 20px rgba(255,0,0,1); /* Яскравіше світіння */
+        }
+
+        /* Основний блок контенту */
+        .content {
+            background: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний фон */
+            margin: auto; /* Центрування */
+            width: 70%; /* 70% ширини екрану */
+            padding: 100px 20px 20px; /* Відступи (зверху більше для шапки) */
+            border-radius: 15px; /* Закруглені краї */
+            display: flex; /* Гнучкий контейнер */
+            flex-direction: column; /* Елементи в стовпчик */
+            justify-content: center; /* Вирівнювання */
+            align-items: center; /* По центру */
+        }
+
+        /* Таблиця */
+        table {
+            margin: auto; /* Центрування */
+            border-collapse: separate; /* Зберігає відступи */
+            border-spacing: 0; /* Без відступів між клітинками */
+            width: 100%; /* На всю ширину контейнера */
+            background: rgba(20, 20, 20, 0.9); /* Темний фон */
+            border-radius: 10px; /* Закруглені краї */
+            overflow: hidden; /* Приховує виступаюче */
+            box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Тінь */
+            font-size: 18px; /* Розмір тексту */
+        }
+
+        /* Клітинки таблиці */
+        th, td {
+            padding: 15px; /* Відступи */
+            color: white; /* Білий текст */
+            text-align: center; /* Центрування */
+        }
+
+        /* Заголовки таблиці */
+        th {
+            background: linear-gradient(135deg, #a00000, #ff0000); /* Червоний фон */
+            font-size: 20px; /* Трохи більший шрифт */
+        }
+
+        /* Кожен другий рядок */
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05); /* Легке підсвічування */
+        }
+
+        /* Ефект наведення */
+        tr:hover {
+            background: rgba(255, 0, 0, 0.2); /* Червоне підсвічування */
+            cursor: pointer; /* Курсор-рука */
+        }
+
+        /* Відео */
+        iframe {
+            width: 80%; /* 80% ширини */
+            max-width: 800px; /* Але не більше 800px */
+            height: 450px; /* Висота */
+            border: none; /* Без рамки */
+            margin-bottom: 20px; /* Відступ знизу */
+            border-radius: 15px; /* Закруглені краї */
+            box-shadow: 0 0 20px rgba(0,0,0,0.7); /* Тінь */
+        }
+
+        /* Контейнер для картинки */
+        .image-blur {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Стиль картинки */
+        .image-blur img {
+            width: 200px; /* Ширина */
+            height: auto; /* Автоматична висота */
+            display: block;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.7)); /* Тінь */
+            border-radius: 15px; /* Закруглення */
+        }
+
+        /* Заголовки та абзаци */
+        h1, h2, p {
+            font-weight: bold; /* Жирний текст */
+        }
+
+        p {
+            font-size: 20px; /* Розмір тексту */
+            line-height: 1.5; /* Висота рядка */
+            text-align: left; /* Текст вирівняний вліво */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header>
+        <a href="WEB SAYT.html">Основна</a> <!-- Посилання на головну -->
+        <a href="2.html">Локації</a> <!-- Посилання на сторінку з локаціями -->
+        <a href="kuttenberg.html">Куттенберг</a> <!-- Посилання на Куттенберг -->
+        <a href="inf.html">Інформація</a> <!-- Посилання на сторінку з інформацією -->
+        <img src="https://upload.wikimedia.org/wikipedia/uk/c/c5/Kingdom-Come-Deliverance-2.jpg" alt="KCD II"> <!-- Логотип -->
+    </header>
+
+    <!-- Основний контент -->
+    <div class="content">
+        <h1>Kingdom Come: Deliverance II</h1> <!-- Заголовок -->
+
+        <p>
+            Kingdom Come: Deliverance 2 — це продовження відомої рольової гри у відкритому світі,
+            що переносить гравця у реалістичну атмосферу середньовічної Богемії.
+            Вас чекають битви, лицарські турніри, історичні події та справжній дух епохи.
+        </p>
+
+        <h2>Середньовічна атмосфера</h2>
+        <div class="image-blur">
+            <img src="https://upload.wikimedia.org/wikipedia/uk/c/c5/Kingdom-Come-Deliverance-2.jpg" alt="KCD II"> <!-- Картинка гри -->
+        </div>
+
+        <h2>Події та локації Куттенберга</h2>
+        <table>
+            <tr>
+                <th>Подія</th>
+                <th>Локація</th>
+                <th>Опис</th>
+            </tr>
+            <!-- Рядки таблиці -->
+            <tr>
+                <td>Обід у таверні</td>
+                <td>Центр міста</td>
+                <td>Місце для зустрічі з NPC та отримання завдань.</td>
+            </tr>
+            <tr>
+                <td>Відвідини кузні</td>
+                <td>Кузня Куттенберга</td>
+                <td>Тут можна купити або полагодити обладунки та зброю.</td>
+            </tr>
+            <tr>
+                <td>Ринок</td>
+                <td>Головна площа</td>
+                <td>Торгівля товарами, рідкісними інгредієнтами та ресурсами.</td>
+            </tr>
+            <tr>
+                <td>Місцевий храм</td>
+                <td>Східна частина міста</td>
+                <td>Можна отримати духовні квести та покращити репутацію.</td>
+            </tr>
+        </table>
+
+        <h2>Трейлер гри</h2>
+        <iframe src="https://www.youtube.com/embed/ju8R8gwD-Vg" title="KCD II Trailer" allowfullscreen></iframe> <!-- Відео з YouTube -->
+    </div>
+
+</body>
+</html>

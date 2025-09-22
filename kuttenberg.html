@@ -1,0 +1,181 @@
+<!DOCTYPE html> <!-- Вказує, що це HTML5 -->
+<html>
+<head>
+    <title>Куттенберг - KCD II</title> <!-- Заголовок сторінки (показується на вкладці браузера) -->
+    <meta charset="UTF-8"> <!-- Підтримка українських символів -->
+
+    <style>
+        /* ===== Загальні стилі для сторінки ===== */
+        body {
+            margin: 0; /* Прибирає зовнішні відступи */
+            padding: 0; /* Прибирає внутрішні відступи */
+            background: url("Kuttenberg.PNG.webp") no-repeat center center fixed; /* Фонова картинка */
+            background-size: cover; /* Розтягування на весь екран */
+            color: white; /* Білий текст */
+            font-family: Georgia, serif; /* Шрифт */
+            text-align: center; /* Вирівнювання тексту */
+        }
+
+        /* ===== Шапка (меню навігації) ===== */
+        header {
+            position: fixed; /* Фіксується зверху */
+            top: 0;
+            left: 0;
+            width: 100%; /* На всю ширину */
+            background: rgba(0,0,0,0.85); /* Напівпрозорий чорний */
+            display: flex; /* Розташування в ряд */
+            align-items: center; /* Вирівнювання вертикально */
+            justify-content: center; /* Вирівнювання по центру */
+            padding: 10px 0; /* Відступи */
+            z-index: 1000; /* Щоб було поверх */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.7); /* Тінь */
+            gap: 20px; /* Відстань між кнопками */
+        }
+
+        /* Логотип */
+        header img { height: 50px; border-radius: 10px; }
+
+        /* Кнопки-меню */
+        header a {
+            text-decoration: none; /* Без підкреслення */
+            color: white; /* Білий текст */
+            font-weight: bold; /* Жирний текст */
+            font-size: 18px; /* Розмір */
+            padding: 10px 20px; /* Відступи */
+            background: linear-gradient(135deg, #a00000, #ff0000); /* Червоний градієнт */
+            border-radius: 10px; /* Закруглені кути */
+            box-shadow: 0px 0px 10px rgba(255,0,0,0.7); /* Світіння */
+            transition: 0.3s; /* Анімація */
+        }
+        /* Ефект при наведенні */
+        header a:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000);
+            transform: scale(1.05); /* Трохи збільшення */
+            box-shadow: 0px 0px 20px rgba(255,0,0,1);
+        }
+
+        /* ===== Контейнер з контентом ===== */
+        .content {
+            background: rgba(0, 0, 0, 0.6); /* Напівпрозорий фон */
+            margin: auto; /* Центрування */
+            width: 85%; /* Ширина блоку */
+            padding: 120px 30px 40px; /* Відступи (зверху більше для шапки) */
+            border-radius: 15px; /* Закруглені кути */
+            display: flex; /* Flex-контейнер */
+            flex-direction: column; /* Елементи в стовпчик */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Заголовок */
+        h1 { font-size: 36px; font-weight: bold; margin-bottom: 20px; }
+
+        /* Абзаци */
+        p { font-size: 20px; line-height: 1.6; text-align: center; margin-bottom: 20px; }
+
+        /* Головне зображення */
+        #mainImage {
+            width: 500px; height: auto; border-radius: 15px; /* Розмір та форма */
+            margin: 20px 0; box-shadow: 0 0 30px rgba(0,0,0,0.8); /* Тінь */
+            transition: transform 0.3s ease; /* Анімація */
+            cursor: pointer; /* Курсор-рука */
+            position: relative;
+        }
+        /* Ефект при наведенні на зображення */
+        #mainImage:hover { transform: scale(1.1); }
+
+        /* ===== Вікно з додатковою інформацією ===== */
+        #infoBox {
+            display: none; /* Спочатку приховане */
+            position: fixed; top: 50%; left: 50%; /* По центру екрану */
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95); /* Чорний фон */
+            color: #fff; /* Білий текст */
+            padding: 25px;
+            border-radius: 15px; /* Закруглені кути */
+            max-width: 500px; /* Максимальна ширина */
+            font-size: 18px;
+            text-align: center;
+            z-index: 1000; /* Поверх усього */
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+        }
+
+        /* Кнопка для закриття вікна */
+        #infoBox button {
+            margin-top: 15px;
+            padding: 10px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #a00000, #ff0000);
+            color: white;
+        }
+        #infoBox button:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000);
+            transform: scale(1.05);
+        }
+
+        /* ===== Кнопка "Назад" ===== */
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 20px;
+            color: white;
+            background: linear-gradient(135deg, #a00000, #ff0000);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0px 0px 15px rgba(255,0,0,0.7);
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: linear-gradient(135deg, #ff0000, #a00000);
+            transform: scale(1.1);
+            box-shadow: 0px 0px 25px rgba(255,0,0,1);
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ===== Шапка з меню ===== -->
+<header>
+    <a href="WEB SAYT.html">Основна</a>
+    <a href="2.html">Локації</a>
+    <a href="kuttenberg.html">Куттенберг</a>
+    <a href="inf.html">Інформація</a>
+    <img src="https://upload.wikimedia.org/wikipedia/uk/c/c5/Kingdom-Come-Deliverance-2.jpg" alt="KCD II"> <!-- Логотип -->
+</header>
+
+<!-- ===== Основний контент ===== -->
+<div class="content">
+    <h1>Куттенберг</h1>
+    <img id="mainImage" src="GZi2rzQXoBECHqu.jpg" alt="Куттенберг"> <!-- Головне зображення -->
+    <p>Куттенберг — центральне місто гри Kingdom Come: Deliverance II. Тут проходять ключові події сюжету та розташовані головні торгові площі, замки та ремісничі майстерні. Місто оточене річками та лісами, а його історична архітектура створює унікальний колорит.</p>
+    <a href="2.html" class="button">Назад</a> <!-- Кнопка повернення -->
+</div>
+
+<!-- ===== Вікно з додатковою інформацією ===== -->
+<div id="infoBox">
+    <p>Куттенберг — серце подій гри, де гравець зустрічає ключових NPC та знаходить цінні ресурси. Місто розділене на райони з ринками, замками та стратегічними будівлями.</p>
+    <button id="closeInfo">Закрити</button> <!-- Кнопка закриття -->
+</div>
+
+<!-- ===== JavaScript (логіка відкриття/закриття вікна) ===== -->
+<script>
+    const mainImage = document.getElementById('mainImage'); // Отримуємо картинку
+    const infoBox = document.getElementById('infoBox'); // Отримуємо вікно з інфою
+    const closeBtn = document.getElementById('closeInfo'); // Отримуємо кнопку закриття
+
+    // Клік по картинці відкриває вікно
+    mainImage.addEventListener('click', () => { infoBox.style.display = 'block'; });
+
+    // Клік по кнопці закриває вікно
+    closeBtn.addEventListener('click', () => { infoBox.style.display = 'none'; });
+</script>
+
+</body>
+</html>
